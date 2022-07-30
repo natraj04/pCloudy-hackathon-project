@@ -53,6 +53,35 @@ config.properties file on root folder contains the env properties/default variab
 2. Update the properties on testNg.xml to ignore the config property
 3. Update the properties during the run time via mvn command using step 3
 
+### Reports and screenshot locations
+
+Scenario 1: 
+report link: https://device.pcloudy.com/execution_report/399929?key=jqsfg4f2pgqk9d3y88hd4n8w
+
+local report path: 
+target/selenide/2022-07-30 16:25:44.124 
+target/surefire-reports/Automation-Report_2022-07-30 04-25-43-2543.html
+
+Scenario 3:
+report link: https://device.pcloudy.com/execution_report/399937?key=jqsfg4f2pgqk9d3y88hd4n8w
+
+local report path:
+target/selenide/2022-07-30 16:28:58.881
+target/surefire-reports/Automation-Report_2022-07-30 04-28-58-2858.html
+
+Scenario 4:
+report link: https://device.pcloudy.com/execution_report/399942?key=jqsfg4f2pgqk9d3y88hd4n8w
+
+local report path:
+target/selenide/2022-07-30 16:31:39.312
+target/surefire-reports/Automation-Report_2022-07-30 04-31-39-3139.html
+
+
+#### Sample diff image after comparing 2 images
+![diff](https://user-images.githubusercontent.com/49331044/181908403-2df79e03-83a8-447c-8417-d7bbfd4f205a.png)
+
+
+
 While execution the priority will always be given to **mvn command > testNg.xml > config.properties** 
 i.e. if apikey and email is present passed via mvn command while execution it checked the testng.xml if not present then check the config.properties before failing the execution
 
