@@ -47,7 +47,7 @@ Java based project for test automation covering functional automation testing. T
      - The tests within the xml can be run in parallel by increasing **thread-count** parameter and adding parallel="tests". e.g. `thread-count="2" parallel="tests"`, this means 2 testcases will be run on 2 browsers in parallel 
 4. After the execution, the reports will be created under target -> surefire-reports -> Automation-report_{timestamp}.html. Open this on any browser to view it.
 
-### NOTE:
+### NOTE: Remember to update the API_KEY and EMAIL
 config.properties file on root folder contains the env properties/default variables for any testcase to run.
 1. Update that property file on local and run the script
 2. Update the properties on testNg.xml to ignore the config property
@@ -73,14 +73,11 @@ Scenario 4:
     - target/selenide/2022-07-30 16:31:39.312
     - target/surefire-reports/Automation-Report_2022-07-30 04-31-39-3139.html
 
-
-#### Sample diff image after comparing 2 images
-![diff](https://user-images.githubusercontent.com/49331044/181908403-2df79e03-83a8-447c-8417-d7bbfd4f205a.png)
-
-
-
 While execution the priority will always be given to **mvn command > testNg.xml > config.properties** 
 i.e. if apikey and email is present passed via mvn command while execution it checked the testng.xml if not present then check the config.properties before failing the execution
 
 [^1]: \* indicates that though the framework is built to support ios execution it has not been tested on ios application and devices
+
+#### Sample diff image after comparing 2 images
+![diff](https://user-images.githubusercontent.com/49331044/181908403-2df79e03-83a8-447c-8417-d7bbfd4f205a.png)
 
