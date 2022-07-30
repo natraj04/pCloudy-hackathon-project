@@ -4,8 +4,6 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.pcloudyhackathon.library.SessionData;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
-import org.joda.time.LocalDateTime;
-import org.joda.time.LocalTime;
 import org.openqa.selenium.OutputType;
 import org.testng.Assert;
 
@@ -73,11 +71,13 @@ public class CommonUtils {
      * @throws IOException
      */
     public static File takePngScreenShot (String name) throws IOException {
-
-
         AppiumDriver driver = (AppiumDriver) WebDriverRunner.getWebDriver();
         BufferedImage img = ImageIO.read(new ByteArrayInputStream(org.apache.commons.codec.binary.Base64.decodeBase64(driver.getScreenshotAs(OutputType.BASE64))));
         ImageIO.write(img, "png", new File((System.getProperty("user.dir")+"/target/selenide/"+ SessionData.getTimeStamp() +"/"+(name)).toString()));
         return new File(System.getProperty("user.dir")+"/target/selenide/"+ SessionData.getTimeStamp() +"/"+name);
+    }
+
+    public static void navigateBack() {
+        WebDriverRunner.getWebDriver().navigate().back();
     }
 }

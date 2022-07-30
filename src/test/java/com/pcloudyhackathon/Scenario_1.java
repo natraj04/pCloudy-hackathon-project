@@ -11,6 +11,12 @@ import java.io.IOException;
 
 import static com.codeborne.selenide.Selenide.page;
 
+/**
+ * Launch The App
+ * Get The Coordinates of Login Button Using pCloudy’s OCR
+ * Perform Click Operation
+ * Perform Double Tab Operation.
+ */
 public class Scenario_1 extends BaseTest {
 
     final CustomLogger log = new CustomLogger(Scenario_1.class, true);

@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.random.RandomGenerator;
 
 import static com.codeborne.selenide.Selenide.screenshot;
 
@@ -37,16 +38,22 @@ public class LoginPage {
         loginButton.shouldBe(Condition.enabled).click();
     }
 
-    public void getLoginCoordinate() throws IOException, ConnectError {
-        log.info("Inside clickOnLoginButton");
+    public Object getLoginCoordinate() throws IOException, ConnectError {
+
         loginButton.shouldBe(Condition.enabled);
-        log.info("loginButton is enabled");
-        File loginButtonFile = CommonUtils.takePngScreenShot("loginButton.png");
-        log.info("loginButtonFile = "+ loginButtonFile);
+        int min = 0;
+        int max = 100;
+        double randomNumber = Math.random()*(max-min+1)+min;
+        String randomString = String.valueOf(randomNumber).substring(0,2);
+
+        File loginButtonFile = CommonUtils.takePngScreenShot(randomString+"_loginButton.png");
+
         String imageBaseID = pCloudyUtils.getBaseImageId(loginButtonFile);
-        log.info("imageBaseID = "+ imageBaseID);
+
         log.info("loginButton.getText() = "+loginButton.getText());
         Object getCoordinate = pCloudyUtils.getCoordinate(imageBaseID, loginButton.getText());
         log.info("getCoordinate = "+ getCoordinate);
+
+        return getCoordinate;
     }
 }

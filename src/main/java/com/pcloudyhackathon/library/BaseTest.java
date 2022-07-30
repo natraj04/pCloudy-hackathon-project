@@ -55,15 +55,12 @@ public class BaseTest {
         // launch the application and set the driver to global access
         log.info("Launching the application");
         SessionData.setTimeStamp(String.valueOf(new Timestamp(System.currentTimeMillis())));
+
+        // location where screenshots are kept
         Configuration.reportsFolder = "target/selenide/"+SessionData.getTimeStamp();
         Configuration.timeout = SessionData.getTimeout();
+
         new DriverImpl().launchApplication();
-//        closeWebDriver();
-//        Configuration.browserSize = null;
-//        Configuration.browser = DriverImpl.class.getName();
-//        WebDriverRunner.addListener(new AbstractWebDriverEventListener()) {
-//        });
-//        open();
 
     }
 

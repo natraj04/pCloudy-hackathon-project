@@ -3,12 +3,22 @@ package com.pcloudyhackathon.pageobjects;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import com.pcloudyhackathon.utils.CommonUtils;
 import com.pcloudyhackathon.utils.CustomLogger;
+import io.appium.java_client.PerformsTouchActions;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.touch.LongPressOptions;
+import io.appium.java_client.touch.offset.ElementOption;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.io.File;
+import java.io.IOException;
+
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.actions;
 
 public class HomePage {
@@ -30,22 +40,18 @@ public class HomePage {
     @AndroidFindBy(xpath= "//android.widget.TextView[@text='Seconday Image']")
     private SelenideElement secondayImageRow;
 
-    // elements inside doubleTapRow
-    @AndroidFindBy(xpath= "//android.widget.Button[@resource-id='com.pcloudyhackathon:id/click_here']")
-    private SelenideElement clickHere;
+    final private String clickHereLoc = "//android.widget.Button[@resource-id='com.pcloudyhackathon:id/click_here']";
+    final private String sourceElementToDrag = "//android.widget.Button[@resource-id='com.pcloudyhackathon:id/button']";
+    final private String destinationLocation = "//android.widget.LinearLayout[@resource-id='com.pcloudyhackathon:id/left_layout']";
 
 
-
-    // drag and drop
-    //android.widget.Button[@resource-id='com.pcloudyhackathon:id/button']
-    //android.widget.LinearLayout[@resource-id='com.pcloudyhackathon:id/left_layout']
 
     public void clickOnDoubleTapButton () {
         doubleTapRow.shouldBe(Condition.enabled).click();
     }
 
     public void doubleCLick() {
-        clickHere.shouldBe(Condition.enabled).isDisplayed();
+        SelenideElement clickHere = $(By.xpath(clickHereLoc)).shouldBe(Condition.enabled);
         try {
             WebElement clickElement = clickHere;
             Actions action = new Actions(WebDriverRunner.getWebDriver());
@@ -61,11 +67,27 @@ public class HomePage {
 
     }
 
-    public void clickOnBaseImageRow () {
-        baseImageRow.shouldBe(Condition.enabled).click();
+    public void clickOnDragAndDrop () {
+        dragAnddropRow.shouldBe(Condition.enabled).click();
     }
 
-    public void clickOnSecondayImageRow () {
+    public void performDragAndDrop () {
+        SelenideElement elementToDrag = $(By.xpath(sourceElementToDrag)).shouldBe(Condition.enabled);
+        SelenideElement destinationLocationElement = $(By.xpath(destinationLocation)).shouldBe(Condition.enabled);
+        actions().dragAndDrop(elementToDrag, destinationLocationElement).perform();
+
+        actions().clickAndHold(elementToDrag).moveToElement(destinationLocationElement).release().perform();
+    }
+
+    public File clickOnBaseImageRowAndTakeScreenshot () throws IOException {
+        baseImageRow.shouldBe(Condition.enabled).click();
+        CommonUtils.waitTill(2000);
+        return CommonUtils.takePngScreenShot("BaseImage.png");
+    }
+
+    public File clickOnSecondayImageRowAndTakeScreenshot () throws IOException {
         secondayImageRow.shouldBe(Condition.enabled).click();
+        CommonUtils.waitTill(2000);
+        return CommonUtils.takePngScreenShot("SecondaryImage.png");
     }
 }

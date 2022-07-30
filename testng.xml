@@ -27,9 +27,19 @@
     <!--ios specific paramters-->
     <parameter name="bundleId" value="id" />
 
-    <test verbose="2" name="UI Testcase for Login page-GB">
+    <test verbose="2" name="Scenario 1">
         <classes>
             <class name="com.pcloudyhackathon.Scenario_1" />
+        </classes>
+    </test>
+    <test verbose="2" name="Scenario 3">
+        <classes>
+            <class name="com.pcloudyhackathon.Scenario_3" />
+        </classes>
+    </test>
+    <test verbose="2" name="Scenario 4">
+        <classes>
+            <class name="com.pcloudyhackathon.Scenario_4" />
         </classes>
     </test>
 </suite>
