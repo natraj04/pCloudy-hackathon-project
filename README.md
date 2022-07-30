@@ -56,25 +56,22 @@ config.properties file on root folder contains the env properties/default variab
 ### Reports and screenshot locations
 
 Scenario 1: 
-report link: https://device.pcloudy.com/execution_report/399929?key=jqsfg4f2pgqk9d3y88hd4n8w
-
-local report path: 
-target/selenide/2022-07-30 16:25:44.124 
-target/surefire-reports/Automation-Report_2022-07-30 04-25-43-2543.html
+- report link: https://device.pcloudy.com/execution_report/399929?key=jqsfg4f2pgqk9d3y88hd4n8w
+- local report path: 
+    - target/selenide/2022-07-30 16:25:44.124 
+    - target/surefire-reports/Automation-Report_2022-07-30 04-25-43-2543.html
 
 Scenario 3:
-report link: https://device.pcloudy.com/execution_report/399937?key=jqsfg4f2pgqk9d3y88hd4n8w
-
-local report path:
-target/selenide/2022-07-30 16:28:58.881
-target/surefire-reports/Automation-Report_2022-07-30 04-28-58-2858.html
+- report link: https://device.pcloudy.com/execution_report/399937?key=jqsfg4f2pgqk9d3y88hd4n8w
+- local report path:
+    - target/selenide/2022-07-30 16:28:58.881
+    - target/surefire-reports/Automation-Report_2022-07-30 04-28-58-2858.html
 
 Scenario 4:
-report link: https://device.pcloudy.com/execution_report/399942?key=jqsfg4f2pgqk9d3y88hd4n8w
-
-local report path:
-target/selenide/2022-07-30 16:31:39.312
-target/surefire-reports/Automation-Report_2022-07-30 04-31-39-3139.html
+- report link: https://device.pcloudy.com/execution_report/399942?key=jqsfg4f2pgqk9d3y88hd4n8w
+- local report path:
+    - target/selenide/2022-07-30 16:31:39.312
+    - target/surefire-reports/Automation-Report_2022-07-30 04-31-39-3139.html
 
 
 #### Sample diff image after comparing 2 images
